@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekart / Shopping</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/33bbd11d25.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- <div class="main1" id="screen1">
+
+    <div class="container">
+      <div class="imgg">
+          <center>
+                          <img src="data:image/png;base64,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" alt="Logo Image"><br>
+          </center>
+          <div class="loading">
+              <progress id="progbar" min="0" max="100" value="0"> 
+                  Your Browser doesn't Support Progress Bar.
+              </progress>
+          </div>
+      </div>
+  </div>
+    <div class="credits">
+        <h4>
+          &copy;Created by Sagar/ <i class="fa fa-github">
+            <a href="https://github.com/JeevanSagar120">
+                Jeevan Sagar
+            </a>
+          </i>
+        </h4>
+    </div>
+  </div>
+  </div> -->
+
+
+  <div class="main2" id="screen2" style="display: block;">
+        
+    <!-- Nav Bar start -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+          <img height="100px" width="150px" src="data:image/png;base64,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" alt="" height="100px" width="100px">
+              <form class="d-flex" role="search">
+                  <input id="searchitems" class="form-control me-2" type="search" placeholder="Search " aria-label="Search">
+                  <button style="background-color: rgb(84, 69, 225); color: white;" class="btn btn-outline" type="submit">Search</button>
+              </form>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="connatiner-fluid">
+              <div class="container-fluid collapse navbar-collapse " id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <!-- Home bar  -->
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                      </li>
+
+                      <!-- About us -->
+                      <li class="nav-item">
+                          <a class="nav-link" href="about.html">About us</a>
+                      </li>
+
+                      <!--  -->
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          More 
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="mailto:22ag5a6602@gmail.com">Mail us</a></li>
+                          <li><a class="dropdown-item" href="tel:+919390634012">Call an agent </a></li>
+                          <li><a class="dropdown-item" href="logout.html">Logout</a></li>
+                      </ul>
+                      </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </nav>
+
+  <!-- Nav Bar Ending -->
+
+  <!-- Accordian Content Start  -->
+
+    <div class="container-fluid">
+      <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                Mens Wear
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                  <div class="container-fluid">
+                      <!-- Mens Wear Start -->
+                          <div class="row" id="mensclothing">
+                              <!-- Mens Wear Item 1 -->
+                              <div class="col-sm-6 col-md-4 col-lg-3 mb-4 ">
+                                  <center>
+                                      <div class="card" style="width: 18rem;" id="clothitems">
+                                          <img src="https://m.media-amazon.com/images/I/71eUwDk8z+L._AC_SY400_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                          <div class="card-body">
+                                            <h5 class="card-title"><b>Men's Black t Shirt</b></h5>
+                                            <p class="card-text">
+                                              Brand: Allen Solly <br>
+                                              Price: 696/- <br>
+                                              <span style="color: yellow; font-size: 40px;">* * * *</span>
+                                            </p>
+                                            <a href="https://www.amazon.in/Allen-Solly-Regular-AMKP317G04249_Jet-Black_Large/dp/B06Y2FG6R7/?_encoding=UTF8&pd_rd_w=8ArNi&content-id=amzn1.sym.211684f4-ebe1-443f-8a4a-0773471e979f&pf_rd_p=211684f4-ebe1-443f-8a4a-0773471e979f&pf_rd_r=5R6BCR33PB87F8F9PNYE&pd_rd_wg=PGZ68&pd_rd_r=32160074-551b-481c-a1b7-dd1f15417f7a&ref_=pd_hp_d_btf_crs_zg_bs_1571271031" class="btn ">Buy Now</a>
+                                          </div>
+                                        </div>
+                                  </center>
+                              </div>
+
+                              <!-- mens Wear item 2 -->
+                              <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                                  <center>
+                                      <div class="card" style="width: 18rem;" id="clothitems">
+                                          <img src="https://m.media-amazon.com/images/I/61Xe0ZRyW6L._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                          <div class="card-body">
+                                            <h5 class="card-title"><b>Men's printed t Shirt</b></h5>
+                                            <p class="card-text">
+                                              Brand: H&M <br>
+                                              Price: 690/- <br>
+                                              <span style="color: rgb(21, 255, 0); font-size: 40px;">* * * * *</span>
+                                            </p>
+                                            <a href="https://www.amazon.in/WILD-CITY-Stretchable-Comfortable-T-Shirts/dp/B0CW9WH2BG/ref=sr_1_2_sspa?crid=XXQY82YH4BHH&dib=eyJ2IjoiMSJ9.vdeE9IEju9cvChuGiik14ITEspAvrs2Rad7YwgFudlmLEZ1YgBz3Mff4GFVSO1UEnwG_nRwaeRe7awoGGnsAlrGQqEyCyCB5T1xqs5_jm0BdlSIInJESgGPitCW8hPdy1-PYJPnR-geXYUtpC5w_78kF0Ebli0-WErhaavmP4bqq7atigUrZZa4e6hB_Im1zLS13eSHLSstcTzdZPIFI8kgx6xdDSOEc7ma3idyDzyyIQf_oa84lbs40ujyZjfaHyG0O-8zX5FZg94cxWt1Gi_FYhlCRmrh7fP-WIbvKwyc.Y4FvOivdWLVqjnGFfxb2OLQvQht9u6aRyq5Y82qlFxY&dib_tag=se&keywords=t+shirts+for+man&qid=1719006912&sprefix=t+shirts+%2Caps%2C208&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" class="btn ">Buy Now</a>
+                                          </div>
+                                        </div>
+                                  </center>
+                              </div>
+
+                              <!-- Mens Item no 3 -->
+                               <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                                  <center>
+                                      <div class="card" style="width: 18rem;" id="clothitems">
+                                          <img  src="https://m.media-amazon.com/images/I/51uSxAeuAkL._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                          <div class="card-body">
+                                            <h5 class="card-title"><b>Men's Polo t Shirt</b></h5>
+                                            <p class="card-text">
+                                              Brand:  luxCozi<br>
+                                              Price: 1900/- <br>
+                                              <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                            </p>
+                                            <a href="https://www.amazon.in/Lux-Cozi-Maroon-Regular-T-Shirt/dp/B0C96WCKL5/ref=sr_1_7?crid=XXQY82YH4BHH&dib=eyJ2IjoiMSJ9.vdeE9IEju9cvChuGiik14ITEspAvrs2Rad7YwgFudlmLEZ1YgBz3Mff4GFVSO1UEnwG_nRwaeRe7awoGGnsAlrGQqEyCyCB5T1xqs5_jm0BdlSIInJESgGPitCW8hPdy1-PYJPnR-geXYUtpC5w_78kF0Ebli0-WErhaavmP4bqq7atigUrZZa4e6hB_Im1zLS13eSHLSstcTzdZPIFI8kgx6xdDSOEc7ma3idyDzyyIQf_oa84lbs40ujyZjfaHyG0O-8zX5FZg94cxWt1Gi_FYhlCRmrh7fP-WIbvKwyc.Y4FvOivdWLVqjnGFfxb2OLQvQht9u6aRyq5Y82qlFxY&dib_tag=se&keywords=t+shirts+for+man&qid=1719006912&sprefix=t+shirts+%2Caps%2C208&sr=8-7" class="btn ">Buy Now</a>
+                                          </div>
+                                        </div>
+                                  </center>
+                               </div>
+                               <!-- Mens item no 4 -->
+                                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                                  <center>
+                                      <div class="card" style="width: 18rem;" id="clothitems">
+                                          <img src="https://m.media-amazon.com/images/I/71tOFBNH2XL._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                          <div class="card-body">
+                                            <h5 class="card-title"><b>Men's Cotton T Shirt</b></h5>
+                                            <p class="card-text">
+                                              Brand: Amazon <br>
+                                              Price: 1270/- <br>
+                                              <span style="color: rgb(162, 76, 50); font-size: 40px;">* * * </span>
+                                            </p>
+                                            <a href="https://www.amazon.in/Amazon-Brand-Regular-T-Shirt-PAG7_Pure/dp/B093LLJV9T/ref=sxin_15_pa_sp_search_thematic_sspa?content-id=amzn1.sym.ee635213-fee1-408a-be4a-3523feeb9a42%3Aamzn1.sym.ee635213-fee1-408a-be4a-3523feeb9a42&crid=XXQY82YH4BHH&cv_ct_cx=t+shirts+for+man&dib=eyJ2IjoiMSJ9.DTW-vOcm8WsH7lW621E9KVa0Aiq14JicjZcSJtt3_ra2k1CFjhX5ezjEm5esYY8YXj5jycb3Ww16rAL3PLInEw.zkDbAiMZwWP-rogrkinL7BztnoYffEnrUwQ4eSilbZw&dib_tag=se&keywords=t+shirts+for+man&pd_rd_i=B093LLJV9T&pd_rd_r=a3606035-9d47-4d81-9015-607810508e9a&pd_rd_w=PK2P1&pd_rd_wg=8jJ30&pf_rd_p=ee635213-fee1-408a-be4a-3523feeb9a42&pf_rd_r=700DSSTBM6JVN7QA6HDS&qid=1719007608&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=t+shirts+%2Caps%2C208&sr=1-3-ced4eeeb-b190-41d6-902a-1ecb3fb8b7c4-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&psc=1" class="btn ">Buy Now</a>
+                                          </div>
+                                        </div>
+                                  </center>
+                                </div>
+                                <!-- Mens Item 5 -->
+                                 <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                                      <center>
+                                          <div class="card" style="width: 18rem;" id="clothitems">
+                                              <img src="https://m.media-amazon.com/images/I/513-EqhouRL._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                              <div class="card-body">
+                                                <h5 class="card-title"><b>Men's  Shirt</b></h5>
+                                                <p class="card-text">
+                                                  Brand: Allen Solly <br>
+                                                  Price: 696/- <br>
+                                                  <span style="color: yellow; font-size: 40px;">* * * *</span>
+                                                </p>
+                                                <a href="https://www.amazon.in/Regrowth-Mens-Regular-Shirt-REGW-DEN-BLU-L_Blue_L/dp/B0B6STW6WS/ref=sr_1_1_sspa?crid=2CKPR88GSIBLL&dib=eyJ2IjoiMSJ9.ab0hFzrEtw3r3ce4aDgadUzm7KNkGQiU0QihZlQq4GZdZ8l2uvwNvIBSDzmbn4OTETjOH79qd-92paNOSM1OySp7PgSJUiN6LL9oQ09vxsIFfja86BDIYNGzEIHvIf28J4szbzMeZyW6FgRBhfHbRqgJCKKVUY9kSSWZ3RAqVU3lMtZnAQhh6n8tTWip26G0Dq0Ud-eW6qHQMtWZxfQiro10XY076dGV8Xa8yBeI7VFjC96w68UKpXy1ZfGLnlhmSVD4DfvGbUCLZ9RGw7PeoK9mtlkReXNPbMoyNKswsJo.LO7ElwWqqsH3AlTbOGUtFe5NYVvwCVSX891jNji6mzU&dib_tag=se&keywords=shirts+for+men&qid=1719014060&sprefix=shirts+%2Caps%2C240&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" class="btn ">Buy Now</a>
+                                              </div>
+                                            </div>
+                                      </center>
+                                 </div>
+                                 <!-- Mens Item 6 -->
+                                  <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                                      <center>
+                                          <div class="card" style="width: 18rem;" id="clothitems">
+                                              <img src="https://m.media-amazon.com/images/I/51OqmQHAIYL._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                              <div class="card-body">
+                                                <h5 class="card-title"><b>Men's Formal Shirt</b></h5>
+                                                <p class="card-text">
+                                                  Brand: H&M <br>
+                                                  Price: 6000/- <br>
+                                                  <span style="color: rgb(21, 255, 0); font-size: 40px;">* * * * *</span>
+                                                </p>
+                                                <a href="https://www.amazon.in/Van-Heusen-Mens-Shirt-VHSFRSLBI59380_Multi/dp/B0B5YDWGVP/ref=sr_1_2_sspa?crid=2CKPR88GSIBLL&dib=eyJ2IjoiMSJ9.ab0hFzrEtw3r3ce4aDgadUzm7KNkGQiU0QihZlQq4GZdZ8l2uvwNvIBSDzmbn4OTETjOH79qd-92paNOSM1OySp7PgSJUiN6LL9oQ09vxsIFfja86BDIYNGzEIHvIf28J4szbzMeZyW6FgRBhfHbRqgJCKKVUY9kSSWZ3RAqVU3lMtZnAQhh6n8tTWip26G0Dq0Ud-eW6qHQMtWZxfQiro10XY076dGV8Xa8yBeI7VFjC96w68UKpXy1ZfGLnlhmSVD4DfvGbUCLZ9RGw7PeoK9mtlkReXNPbMoyNKswsJo.LO7ElwWqqsH3AlTbOGUtFe5NYVvwCVSX891jNji6mzU&dib_tag=se&keywords=shirts+for+men&qid=1719014060&sprefix=shirts+%2Caps%2C240&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" class="btn ">Buy Now</a>
+                                              </div>
+                                            </div>
+                                      </center>
+                                  </div>
+                                  <!-- Mens Item 7 -->
+                                   <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                                      <center>
+                                          <div class="card" style="width: 18rem;" id="clothitems">
+                                              <img  src="https://m.media-amazon.com/images/I/71pGhgjVR3L._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                              <div class="card-body">
+                                                <h5 class="card-title"><b>Men's Polo t Shirt</b></h5>
+                                                <p class="card-text">
+                                                  Brand:  luxCozi<br>
+                                                  Price: 1900/- <br>
+                                                  <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                                </p>
+                                                <a href="https://www.amazon.in/Van-Heusen-Sport-Casual-VSSFLSLB674921_White/dp/B08FS1F2P6/ref=sr_1_4_sspa?crid=2CKPR88GSIBLL&dib=eyJ2IjoiMSJ9.ab0hFzrEtw3r3ce4aDgadUzm7KNkGQiU0QihZlQq4GZdZ8l2uvwNvIBSDzmbn4OTETjOH79qd-92paNOSM1OySp7PgSJUiN6LL9oQ09vxsIFfja86BDIYNGzEIHvIf28J4szbzMeZyW6FgRBhfHbRqgJCKKVUY9kSSWZ3RAqVU3lMtZnAQhh6n8tTWip26G0Dq0Ud-eW6qHQMtWZxfQiro10XY076dGV8Xa8yBeI7VFjC96w68UKpXy1ZfGLnlhmSVD4DfvGbUCLZ9RGw7PeoK9mtlkReXNPbMoyNKswsJo.LO7ElwWqqsH3AlTbOGUtFe5NYVvwCVSX891jNji6mzU&dib_tag=se&keywords=shirts+for+men&qid=1719014060&sprefix=shirts+%2Caps%2C240&sr=8-4-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" class="btn ">Buy Now</a>
+                                              </div>
+                                            </div>
+                                      </center>
+                                   </div>
+                                   <!-- Mens Item 8 -->
+                                    <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                                      <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                  <img src="https://m.media-amazon.com/images/I/51RgKA1pC1L._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                    <h5 class="card-title"><b>Men's Cotton T Shirt</b></h5>
+                                    <p class="card-text">
+                                      Brand: Amazon <br>
+                                      Price: 1270/- <br>
+                                      <span style="color: rgb(162, 76, 50); font-size: 40px;">* * * </span>
+                                    </p>
+                                    <a href="https://www.amazon.in/CB-COLEBROOK-Casual-Fashion-Textured-X-Large/dp/B0D3PWZYV1/ref=sr_1_6?crid=2CKPR88GSIBLL&dib=eyJ2IjoiMSJ9.ab0hFzrEtw3r3ce4aDgadUzm7KNkGQiU0QihZlQq4GZdZ8l2uvwNvIBSDzmbn4OTETjOH79qd-92paNOSM1OySp7PgSJUiN6LL9oQ09vxsIFfja86BDIYNGzEIHvIf28J4szbzMeZyW6FgRBhfHbRqgJCKKVUY9kSSWZ3RAqVU3lMtZnAQhh6n8tTWip26G0Dq0Ud-eW6qHQMtWZxfQiro10XY076dGV8Xa8yBeI7VFjC96w68UKpXy1ZfGLnlhmSVD4DfvGbUCLZ9RGw7PeoK9mtlkReXNPbMoyNKswsJo.LO7ElwWqqsH3AlTbOGUtFe5NYVvwCVSX891jNji6mzU&dib_tag=se&keywords=shirts+for+men&qid=1719014060&sprefix=shirts+%2Caps%2C240&sr=8-6" class="btn ">Buy Now</a>
+                                  </div>
+                                </div>
+                                      </center>
+                                    </div>
+                          </div>
+                      <!-- mens Wear Ends -->
+                  </div>
+              </div>
+          </div>
+
+
+          <!-- Accordian 2 starts -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Womens Wear
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                  <div class="container-fluid">
+                      <!-- womens wear Start -->
+                      <div class="row">
+                          <!-- womens item 1 -->
+                           <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/517w9bYNSNL._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Women's Marvel t Shirt</b></h5>
+                                        <p class="card-text">
+                                          Brand:  Here & Now <br>
+                                          Price: 900/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.in/NXT-GEN-Printed-Stylish-Sleeves/dp/B0BWW59S8Y/ref=sr_1_3_sspa?crid=3SUT62QZ9I37R&dib=eyJ2IjoiMSJ9.UEWi32mHK85i6MMoU8b0audDMvv83uRND3zjtDuh6_p1bKbL3B4pUbCZLEa8mP0F75FI9luGq8seqL7l8LSXyv03KxV9sIj1KGOxTAfzrWETJELNzc53xGQSuUDJx6DDMD5M_o-pda07C1d35y5jFJm3pirTKuctt6IujwrvU8viOdeSvxqpoFuIISiJ94917roUGbNQ1oxnFQZGsB-2bxfLT_i4FWgq9BHPEtMODnT41D8pkYKbMO0eyPXjHivESIgZ2EOeVMiMQKKlsmMFuCqLVqOllgBNG8aIUSGeBWc.TUqZ2j1hR88p1o061QUt3pwYItPDDRegyn3C7zEG268&dib_tag=se&keywords=t+shirts+for+women&qid=1719007847&sprefix=t+shirts+for+women%2Caps%2C211&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                           </div>
+
+                           <!-- Womens item 2 -->
+                           <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/51RSTwitNNL._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Women's Regular t Shirt</b></h5>
+                                        <p class="card-text">
+                                          Brand:  June Berry<br>
+                                          Price: 169/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.in/JUNEBERRY%C2%AE-Oversized-Shooulder-Sleeves-Graphic/dp/B0BSSZNSRB/ref=sr_1_2_sspa?crid=3SUT62QZ9I37R&dib=eyJ2IjoiMSJ9.UEWi32mHK85i6MMoU8b0audDMvv83uRND3zjtDuh6_p1bKbL3B4pUbCZLEa8mP0F75FI9luGq8seqL7l8LSXyv03KxV9sIj1KGOxTAfzrWET1Kxj2WvNRUgQ_Vgtg4fX1UHjO7p_kSjhmoirA3hLA14VwO38Q0RRtKIj-2tLXUk_g-xZpI6MImtSDgNkek--HuHx7_lC_ViIBkPCwFXh6IM6zvM2jMWK6tnysvIUPQj41D8pkYKbMO0eyPXjHivESIgZ2EOeVMiMQKKlsmMFuCqLVqOllgBNG8aIUSGeBWc.whPvHWIc8bfCrluayt3DenXLLKOE9YDytjAzuwZJd-o&dib_tag=se&keywords=t+shirts+for+women&qid=1719009073&sprefix=t+shirts+for+women%2Caps%2C211&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                           </div>
+
+                          <!-- Womens item 3 -->
+                          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/61IytOl+V7L._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Women's  t Shirt</b></h5>
+                                        <p class="card-text">
+                                          Brand:  AAalt<br>
+                                          Price: 390/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.in/LEOTUDE-Womens-Oversized-T-Shirt-FS28_Black_P_Zblack_XL/dp/B0BTD5KSTJ/ref=sr_1_25?crid=3SUT62QZ9I37R&dib=eyJ2IjoiMSJ9.UEWi32mHK85i6MMoU8b0audDMvv83uRND3zjtDuh6_p1bKbL3B4pUbCZLEa8mP0F75FI9luGq8seqL7l8LSXyv03KxV9sIj1KGOxTAfzrWET1Kxj2WvNRUgQ_Vgtg4fX1UHjO7p_kSjhmoirA3hLA14VwO38Q0RRtKIj-2tLXUk_g-xZpI6MImtSDgNkek--HuHx7_lC_ViIBkPCwFXh6IM6zvM2jMWK6tnysvIUPQj41D8pkYKbMO0eyPXjHivESIgZ2EOeVMiMQKKlsmMFuCqLVqOllgBNG8aIUSGeBWc.whPvHWIc8bfCrluayt3DenXLLKOE9YDytjAzuwZJd-o&dib_tag=se&keywords=t+shirts+for+women&qid=1719009073&sprefix=t+shirts+for+women%2Caps%2C211&sr=8-25" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                          </div>
+
+
+                          <!-- Womens item 4 -->
+                          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/61kffU0Hv+L._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Women's t Shirt</b></h5>
+                                        <p class="card-text">
+                                          Brand:  FabFlee<br>
+                                          Price: 1900/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.in/Fabflee-Womens-Regular-T-Shirt-FB-NW-Oversize-503_XXL_Dark/dp/B0CMQVG6DS/ref=sr_1_55?crid=3SUT62QZ9I37R&dib=eyJ2IjoiMSJ9.UEWi32mHK85i6MMoU8b0audDMvv83uRND3zjtDuh6_p1bKbL3B4pUbCZLEa8mP0F75FI9luGq8seqL7l8LSXyv03KxV9sIj1KGOxTAfzrWET1Kxj2WvNRUgQ_Vgtg4fX1UHjO7p_kSjhmoirA3hLA14VwO38Q0RRtKIj-2tLXUk_g-xZpI6MImtSDgNkek--HuHx7_lC_ViIBkPCwFXh6IM6zvM2jMWK6tnysvIUPQj41D8pkYKbMO0eyPXjHivESIgZ2EOeVMiMQKKlsmMFuCqLVqOllgBNG8aIUSGeBWc.whPvHWIc8bfCrluayt3DenXLLKOE9YDytjAzuwZJd-o&dib_tag=se&keywords=t+shirts+for+women&qid=1719009073&sprefix=t+shirts+for+women%2Caps%2C211&sr=8-55" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                          </div>
+
+
+                          <!-- Womens item 5 -->
+                          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/419M9WmORUL._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Sea Blue Modal Kurta</b></h5>
+                                        <p class="card-text">
+                                          Brand:  Here & Now <br>
+                                          Price: 900/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.in/VESH-Blue-Modal-Kurta-VH5585-BLU-XXL/dp/B0D63JF9VK/ref=sr_1_3_sspa?crid=RAEIF99154GH&dib=eyJ2IjoiMSJ9.fts9XQ-S5sm0TWyikuXqpTtCu2z_E4y-vRmaPkPW66jBUsDHSyiBJyT0kk4Y0CHIUKPnBRWegzqYFus5CQdHZPs4ZR4hDeR1QbIaqxtSPag_Mt_sK1B47RutqeZEYxRTXMV3eEE4zzDzbwfJnVFKcjRrCvb1LICYHnq_An0zbz_8tWcI1T8dDxeluF2_-AFqKUYK8j3RgmVfhvOO8vp2YXmtdNtxkR0Ig487nkmfZrmecR6GrixJpSwjQCwfdDQUi_sO0DxPJ7sOCoU2wQXJCpq-NznsLt1ubVwyCMGgIB4.nr3O-cnCj0C8Qt8WdGqvYF1WS8eY59N16lIgmR3TjnQ&dib_tag=se&keywords=womens+clothing&qid=1719014513&sprefix=womens+clothin%2Caps%2C229&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                          </div>
+
+
+                          <!-- Womens item 6 -->
+                          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/71RVCCznopL._AC_UL480_FMwebp_QL65_.jpg" height="230px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Lehenga Choli With Dupatta</b></h5>
+                                        <p class="card-text">
+                                          Brand:  June Berry<br>
+                                          Price: 169/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.in/KEDARFAB-Womens-Embroidery-Lehenga-Free_Size/dp/B0C68XDZGG/ref=sr_1_2_sspa?crid=RAEIF99154GH&dib=eyJ2IjoiMSJ9.fts9XQ-S5sm0TWyikuXqpTtCu2z_E4y-vRmaPkPW66jBUsDHSyiBJyT0kk4Y0CHIUKPnBRWegzqYFus5CQdHZPs4ZR4hDeR1QbIaqxtSPag_Mt_sK1B47RutqeZEYxRTXMV3eEE4zzDzbwfJnVFKcjRrCvb1LICYHnq_An0zbz_8tWcI1T8dDxeluF2_-AFqKUYK8j3RgmVfhvOO8vp2YXmtdNtxkR0Ig487nkmfZrmecR6GrixJpSwjQCwfdDQUi_sO0DxPJ7sOCoU2wQXJCpq-NznsLt1ubVwyCMGgIB4.nr3O-cnCj0C8Qt8WdGqvYF1WS8eY59N16lIgmR3TjnQ&dib_tag=se&keywords=womens+clothing&qid=1719014513&sprefix=womens+clothin%2Caps%2C229&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                          </div>
+
+
+                          <!-- Womens item 7 -->
+                          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/71tF9O0WgwL._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Women's  t Shirt</b></h5>
+                                        <p class="card-text">
+                                          Brand:  AAalt<br>
+                                          Price: 390/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.in/Leriya-Fashion-Dress-Women-Orange/dp/B0CT3DSTGT/ref=sr_1_6?crid=RAEIF99154GH&dib=eyJ2IjoiMSJ9.fts9XQ-S5sm0TWyikuXqpTtCu2z_E4y-vRmaPkPW66jBUsDHSyiBJyT0kk4Y0CHIUKPnBRWegzqYFus5CQdHZPs4ZR4hDeR1QbIaqxtSPag_Mt_sK1B47RutqeZEYxRTXMV3eEE4zzDzbwfJnVFKcjRrCvb1LICYHnq_An0zbz_8tWcI1T8dDxeluF2_-AFqKUYK8j3RgmVfhvOO8vp2YXmtdNtxkR0Ig487nkmfZrmecR6GrixJpSwjQCwfdDQUi_sO0DxPJ7sOCoU2wQXJCpq-NznsLt1ubVwyCMGgIB4.nr3O-cnCj0C8Qt8WdGqvYF1WS8eY59N16lIgmR3TjnQ&dib_tag=se&keywords=womens+clothing&qid=1719014513&sprefix=womens+clothin%2Caps%2C229&sr=8-6" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                          </div>
+
+
+                          <!-- Womens item 8 -->
+                          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/71hEc93Z22L._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Kurta Set for Women</b></h5>
+                                        <p class="card-text">
+                                          Brand:  FabFlee<br>
+                                          Price: 1900/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.in/AASK-Dress-Women-Piece-Dresses/dp/B0BRBFFC44/ref=sr_1_13?crid=RAEIF99154GH&dib=eyJ2IjoiMSJ9.fts9XQ-S5sm0TWyikuXqpTtCu2z_E4y-vRmaPkPW66jBUsDHSyiBJyT0kk4Y0CHIUKPnBRWegzqYFus5CQdHZPs4ZR4hDeR1QbIaqxtSPag_Mt_sK1B47RutqeZEYxRTXMV3eEE4zzDzbwfJnVFKcjRrCvb1LICYHnq_An0zbz_8tWcI1T8dDxeluF2_-AFqKUYK8j3RgmVfhvOO8vp2YXmtdNtxkR0Ig487nkmfZrmecR6GrixJpSwjQCwfdDQUi_sO0DxPJ7sOCoU2wQXJCpq-NznsLt1ubVwyCMGgIB4.nr3O-cnCj0C8Qt8WdGqvYF1WS8eY59N16lIgmR3TjnQ&dib_tag=se&keywords=womens+clothing&qid=1719014513&sprefix=womens+clothin%2Caps%2C229&sr=8-13" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                          </div>
+                      </div>
+                      <!-- Womens Wear end  -->
+                  </div>
+              </div>
+          </div>
+          <!-- Acccordian 2 Ends  -->
+
+          <!-- Accordian 3 Starts  -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Children Wear
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <!-- Childrens Wear Starts -->
+                 <div class="container-fluid">
+                      <div class="row">
+                          <!-- children item  -->
+                           <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/71JrzUZvMIL._SX679_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Children's Marvel t Shirt</b></h5>
+                                        <p class="card-text">
+                                          Brand:  Here & Now <br>
+                                          Price: 900/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.in/Allen-Solly-Regular-T-Shirt-ABKCERGFB28346_SKY/dp/B0CSS81ZT9/ref=sr_1_6?crid=3TV2LNGQ251J0&dib=eyJ2IjoiMSJ9.A8lUYcODhbmy7PZZswYxDL_yjvqStBIiukU4e4eADESjlmy2xq4e6of8fM-4j9qzqCObnldWORsLseYPpSr8Mp7jMKhgfQxfGYbtAmwRH8oQJcWoVxixwG3ZBbv6eaQUhVL1rqvH3USkHUJ1oxXE7J-S_O9GJOATILea3fZbPNLN6tNsQjfyf1kl--kcb9qgft3rEOYIB67nZiLpXXoqI2rLNNOvGjdz0JG5rMUrKAQaLrs337_pxufmVq-VrAuCefm5YN63cyKi9rozOsH9BYFyZYCCS8R_GjG7ivubr28.V90gYgqVfs7QbasnDJ92yRcoYpb2_ZIp4Y1gzWvSCiA&dib_tag=se&keywords=t+shirts+for+children&qid=1719013102&sprefix=t+shirts+for+children%2Caps%2C199&sr=8-6" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                           </div>
+
+
+
+                          <!-- children item 2 -->
+                          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/71GGZzA-p9L._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Boy's Regular Fit T-Shirt</b></h5>
+                                        <p class="card-text">
+                                          Brand:  June Berry<br>
+                                          Price: 969/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.in/Allen-Solly-Junior-T-Shirt-ABKCCRGF691396_Yellow_8/dp/B08LFM363V/ref=sxin_15_pa_sp_search_thematic_sspa?content-id=amzn1.sym.ee635213-fee1-408a-be4a-3523feeb9a42%3Aamzn1.sym.ee635213-fee1-408a-be4a-3523feeb9a42&crid=3TV2LNGQ251J0&cv_ct_cx=t+shirts+for+children&dib=eyJ2IjoiMSJ9.InlHqyZXc6GHU7HAnWY8ZgIRc0unMWzUtejD2h6aDVQqtARFnLS43L6K0w8sgCvchgd0GjEXXxbEpMLTF6n-6Q.4NlMCMtXvTVb9wNpghSR7kh1hXsLechr9kVAidNhhHY&dib_tag=se&keywords=t+shirts+for+children&pd_rd_i=B08LFM363V&pd_rd_r=ccd1f5a4-5db9-4bdc-bc70-8277491b3192&pd_rd_w=M17jr&pd_rd_wg=KZ1oR&pf_rd_p=ee635213-fee1-408a-be4a-3523feeb9a42&pf_rd_r=3EWTCVCEZRR9R7EWWPJS&qid=1719013102&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=t+shirts+for+children%2Caps%2C199&sr=1-2-ced4eeeb-b190-41d6-902a-1ecb3fb8b7c4-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&psc=1" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                           </div>
+
+
+
+                          <!-- children item  3-->
+                          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/618zPqno28L._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Childrens's  t Shirt</b></h5>
+                                        <p class="card-text">
+                                          Brand:  John Jacobs<br>
+                                          Price: 390/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.in/HELLCAT-Trendy-Typographic-Printed-T-Shirt/dp/B0BXSKJ5SH/ref=sr_1_14?crid=3TV2LNGQ251J0&dib=eyJ2IjoiMSJ9.A8lUYcODhbmy7PZZswYxDL_yjvqStBIiukU4e4eADESjlmy2xq4e6of8fM-4j9qzqCObnldWORsLseYPpSr8Mp7jMKhgfQxfGYbtAmwRH8oQJcWoVxixwG3ZBbv6eaQUhVL1rqvH3USkHUJ1oxXE7J-S_O9GJOATILea3fZbPNLN6tNsQjfyf1kl--kcb9qgft3rEOYIB67nZiLpXXoqI2rLNNOvGjdz0JG5rMUrKAQaLrs337_pxufmVq-VrAuCefm5YN63cyKi9rozOsH9BYFyZYCCS8R_GjG7ivubr28.V90gYgqVfs7QbasnDJ92yRcoYpb2_ZIp4Y1gzWvSCiA&dib_tag=se&keywords=t+shirts+for+children&qid=1719013310&sprefix=t+shirts+for+children%2Caps%2C199&sr=8-14" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                           </div>
+
+
+                          <!-- children item  4-->
+                          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/515uyVWP9HL._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>boys's regular t Shirt</b></h5>
+                                        <p class="card-text">
+                                          Brand:  AllenSolly<br>
+                                          Price: 1900/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.in/Allen-Solly-Junior-Regular-AKBTS5182152_Yellow_14/dp/B07HJS4CDD/ref=sr_1_23_sspa?crid=3TV2LNGQ251J0&dib=eyJ2IjoiMSJ9.A8lUYcODhbmy7PZZswYxDL_yjvqStBIiukU4e4eADESjlmy2xq4e6of8fM-4j9qzqCObnldWORsLseYPpSr8Mp7jMKhgfQxfGYbtAmwRH8oQJcWoVxixwG3ZBbv6eaQUhVL1rqvH3USkHUJ1oxXE7J-S_O9GJOATILea3fZbPNLN6tNsQjfyf1kl--kcb9qgft3rEOYIB67nZiLpXXoqI2rLNNOvGjdz0JG5rMUrKAQaLrs337_pxufmVq-VrAuCefm5YN63cyKi9rozOsH9BYFyZYCCS8R_GjG7ivubr28.V90gYgqVfs7QbasnDJ92yRcoYpb2_ZIp4Y1gzWvSCiA&dib_tag=se&keywords=t+shirts+for+children&qid=1719013310&sprefix=t+shirts+for+children%2Caps%2C199&sr=8-23-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&psc=1" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                           </div>
+
+
+                          <!-- children item  5-->
+                          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img src="https://m.media-amazon.com/images/I/81NYfTPNPRL._AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Sleeveless Dress, T-Shirt, Shorts, Skirt</b></h5>
+                                        <p class="card-text">
+                                          Brand:  Alan Bobb<br>
+                                          Price: 900/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.com/BTween-4-Pack-Wardrobe-Sleeveless-T-Shirt/dp/B0CT2CR91R/ref=sr_1_11_sspa?crid=3S3P9SM5SGIGP&dib=eyJ2IjoiMSJ9.PURYaSDlZwvzOPqSHCxjTnng64y36c4FZKQC5y143TIvxQYDOyWgZLKLxFQ4-N2T891L4vI7scq3EmRbHhzTYPHBS2TWjiGijnq9B5DLRCG4bQyXKA4Jtr5_-cX6Q8AVcpbeTl0uXqTqaw_KW14j1zuX_jsePvwokzekItvhzFto2gRTxfiSja8VT1FOViFgTX_qzqzUn_YfpHorM42OGmW7bKUHc6taIvHpwYsjAdLWDGD19iSTJwKvCVE6LjgqOa16Vt4fba2oE9BuFtiGOxEisJs4r9fS5x0E2EQRjXY.2K1rdHidymq_3nNxjgOx7LrynsuBrRqW6y9b7PCdkec&dib_tag=se&keywords=children%27s+wear+shirts&qid=1719355140&sprefix=children%27s+wear+shirt%2Caps%2C318&sr=8-11-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&psc=1" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                           </div>
+
+
+                          <!-- children item  6-->
+                          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/51ZCMz0n88S._AC_SX679_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Girls Pageant Party Dresses</b></h5>
+                                        <p class="card-text">
+                                          Brand:  AllenSolly<br>
+                                          Price: 1500/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.com/Pageant-Vintage-Sleeveless-Wedding-Christmas/dp/B095Y3T32F/ref=sr_1_12_sspa?crid=3S3P9SM5SGIGP&dib=eyJ2IjoiMSJ9.PURYaSDlZwvzOPqSHCxjTnng64y36c4FZKQC5y143TIvxQYDOyWgZLKLxFQ4-N2T891L4vI7scq3EmRbHhzTYPHBS2TWjiGijnq9B5DLRCG4bQyXKA4Jtr5_-cX6Q8AVcpbeTl0uXqTqaw_KW14j1zuX_jsePvwokzekItvhzFto2gRTxfiSja8VT1FOViFgTX_qzqzUn_YfpHorM42OGmW7bKUHc6taIvHpwYsjAdLWDGD19iSTJwKvCVE6LjgqOa16Vt4fba2oE9BuFtiGOxEisJs4r9fS5x0E2EQRjXY.2K1rdHidymq_3nNxjgOx7LrynsuBrRqW6y9b7PCdkec&dib_tag=se&keywords=children%27s+wear+shirts&qid=1719355140&sprefix=children%27s+wear+shirt%2Caps%2C318&sr=8-12-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&psc=1" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                           </div>
+
+
+                          <!-- children item  7-->
+                          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/71m8rrzE6EL._MCnd_AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Sundress Casual Elegant Dresses</b></h5>
+                                        <p class="card-text">
+                                          Brand:  HushPuppy<br>
+                                          Price: 1690/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.com/Arshiner-Chiffon-Flutter-Dresses-Lightweight/dp/B0CNJW7289/ref=sr_1_27_sspa?crid=3S3P9SM5SGIGP&dib=eyJ2IjoiMSJ9.PURYaSDlZwvzOPqSHCxjTnng64y36c4FZKQC5y143TIvxQYDOyWgZLKLxFQ4-N2T891L4vI7scq3EmRbHhzTYPHBS2TWjiGijnq9B5DLRCG4bQyXKA4Jtr5_-cX6Q8AVcpbeTl0uXqTqaw_KW14j1zuX_jsePvwokzekItvhzFto2gRTxfiSja8VT1FOViFgTX_qzqzUn_YfpHorM42OGmW7bKUHc6taIvHpwYsjAdLWDGD19iSTJwKvCVE6LjgqOa16Vt4fba2oE9BuFtiGOxEisJs4r9fS5x0E2EQRjXY.2K1rdHidymq_3nNxjgOx7LrynsuBrRqW6y9b7PCdkec&dib_tag=se&keywords=children%27s+wear+shirts&qid=1719355140&sprefix=children%27s+wear+shirt%2Caps%2C318&sr=8-27-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&psc=1" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                           </div>
+
+
+                          <!-- children item 8 -->
+                          <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                              <center>
+                                  <div class="card" style="width: 18rem;" id="clothitems">
+                                      <img  src="https://m.media-amazon.com/images/I/61Hm49iQI1L._MCnd_AC_UL480_FMwebp_QL65_.jpg" height="250px" width="100px" class="card-img-top" alt="...">
+                                      <div class="card-body">
+                                        <h5 class="card-title"><b>Casual Ruffle Sleeveless</b></h5>
+                                        <p class="card-text">
+                                          Brand:  GeorgeMchum<br>
+                                          Price: 1000/- <br>
+                                          <span style="color: rgb(246, 255, 0); font-size: 40px;">* * *  *</span>
+                                        </p>
+                                        <a href="https://www.amazon.com/Arshiner-Girls-Sleeveless-Dress-Pockets%EF%BC%885-6Years/dp/B0CQR9WFTZ/ref=sr_1_21_sspa?crid=3S3P9SM5SGIGP&dib=eyJ2IjoiMSJ9.PURYaSDlZwvzOPqSHCxjTnng64y36c4FZKQC5y143TIvxQYDOyWgZLKLxFQ4-N2T891L4vI7scq3EmRbHhzTYPHBS2TWjiGijnq9B5DLRCG4bQyXKA4Jtr5_-cX6Q8AVcpbeTl0uXqTqaw_KW14j1zuX_jsePvwokzekItvhzFto2gRTxfiSja8VT1FOViFgTX_qzqzUn_YfpHorM42OGmW7bKUHc6taIvHpwYsjAdLWDGD19iSTJwKvCVE6LjgqOa16Vt4fba2oE9BuFtiGOxEisJs4r9fS5x0E2EQRjXY.2K1rdHidymq_3nNxjgOx7LrynsuBrRqW6y9b7PCdkec&dib_tag=se&keywords=children%27s+wear+shirts&qid=1719355140&sprefix=children%27s+wear+shirt%2Caps%2C318&sr=8-21-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&psc=1" class="btn ">Buy Now</a>
+                                      </div>
+                                    </div>
+                              </center>
+                           </div>
+                      </div>
+                 </div>
+                 <!-- Childrens Wear Ends -->
+              </div>
+            </div>
+          </div>
+          <!-- Accordian 3 Ends -->
+
+
+        </div>
+    </div>
+  </div>
+
+     <!-- Accordian Content Ending -->
+
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+<style>
+  .card{
+    /* color: white; */
+    /* background-color: black; */
+    background-color: white;
+  }
+    .card-img-top {
+        object-fit: cover;
+      }
+    .main2{
+      display: none;
+    }
+    .container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .imgg{
+      margin-top: 15%;
+  }
+  .loading{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 100px;
+      accent-color: rgb(72, 215, 215);
+  }
+  progress{
+      display: none;
+      height: 20px;
+      width: 20;
+      border-radius: 10px;
+  }
+  a{
+      text-decoration: none;
+      font-family: cursive;
+  }
+  .btn{
+    background-color:rgb(84, 69, 225);
+    color: white;
+  }
+  .btn:hover{
+    background-color:rgb(84, 69, 225);
+    color: white;
+  }
+  .credits{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+  }
+  h4{
+      margin-top: 150px;
+      font-size: 25px;
+
+  }
+</style>
+<script>
+  // var progbar = document.getElementById('progbar');
+  //   var scr1 = document.getElementById('screen1');
+  //   var scr2 = document.getElementById('screen2');
+  //   var counter = 0;
+
+  //   window.onload = function() {
+  //       setInterval(function() {
+  //           progbar.style.display = "block";
+  //           counter++;
+  //           progbar.value = counter;
+  //           if(progbar.value==100){
+  //               scr1.style.display="none";
+  //               scr2.style.display="block";
+  //           }
+  //       }, 30); 
+  //   };
+
+</script>
+</html>
