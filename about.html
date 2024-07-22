@@ -25,15 +25,43 @@
             </center>
             <div class="info">
                 <p>
-
+                    At <strong>E Kart</strong> , we're passionate about fashion and making it accessible to everyone. We're a team of fashion enthusiasts dedicated to curating a collection of trendy and comfortable clothing for all styles and budgets.We believe in offering a diverse range of products, from classic staples to the latest trends. Whether you're looking for everyday essentials, statement pieces, or outfits for a special occasion, we have something for you.
                 </p>
+            </div>
+            <div class="listPoints">
+                <ul>
+                    <li>
+                        <strong>Quality you can trust:</strong> We source our clothing from reputable brands and manufacturers, ensuring you receive high-quality pieces that last.
+                    </li>
+                    <li>
+                        <strong>Always on-trend: </strong>Our team stays ahead of the curve, bringing you the latest styles and hottest looks.
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 
     <hr>
+        <div class="infi">
+            <p>
+                Follow us On <br>
+            </p>
+        </div>
+        <div class="logos">
+            <i class="fa fa-instagram" style="color: red;"></i>
+            <i class="fa fa-twitter" style="color: dodgerblue;"></i>
+            <i class="fa fa-whatsapp" style="color: lightgreen;"></i>
+        </div><br><br>
+    <hr>
     <div class="credits">
-        
+        <p style="text-transform: capitalize; font-size: 20px;">
+            Created by Sahith &copy; all rights reserved 
+        </p>
+    </div>
+    <div class="credit-logos">
+        <i class="fa fa-github">
+            <a href="https://github.com/sahithbhukya" style="text-decoration: none; text-transform: capitalize; font-family: cursive; color: black;">Sahith Bhukya</a>
+        </i>
     </div>
 </body>
 <style>
@@ -42,7 +70,11 @@
         justify-content: center;
         align-items: center;
     }
-
+    .credit-logos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .imgg{
         margin-top: -30px;
     }
@@ -55,25 +87,36 @@
         margin-top: 50px;
         font-size: 40px;
     }
-
+    .info{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .infi{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+    }
+    .logos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    i{
+        margin-top: 30px;
+        font-size: 30px;
+        margin-left: 20px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    .credits{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
-<script>
-    var progbar = document.getElementById('progbar');
-    var scr1 = document.getElementById('screen1');
-    var scr2 = document.getElementById('screen2');
-    var counter = 0;
-
-    window.onload = function() {
-        setInterval(function() {
-            progbar.style.display = "block";
-            counter++;
-            progbar.value = counter;
-            if(progbar.value==100){
-                scr1.style.display="none";
-                scr2.style.display="none";
-            }
-        }, 100); 
-    };
-
-</script>
 </html>
